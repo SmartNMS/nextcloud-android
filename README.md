@@ -35,7 +35,7 @@ Easy starting points are also reviewing [pull requests](https://github.com/nextc
 
 New contributions are added under [AGPLv3](https://www.gnu.org/licenses/agpl.txt).
 
-## Track forked or forking repo
+## Track forked or be forked repo
 After forked the repo to your account or be forked by other account, clone your repo to local, then from local master branch, do following one time:
 ```
 git remote add nextcloud https://github.com/nextcloud/android.git
