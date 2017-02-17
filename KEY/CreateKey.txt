@@ -1,0 +1,5 @@
+﻿## 输入命令  keytool -genkey -alias apk密钥名字.keystore -keyalg RSA -validity 有效期（天数）-keystore apk密钥名字.keystore
+keytool -genkey -alias SUNJOY.keystore -keyalg RSA -validity 60 -keystore SUNJOY.keystore
+
+## 查看 keytool -list -v -keystore apk密钥名字.keystore
+keytool -list -v -keystore SUNJOY.keystore

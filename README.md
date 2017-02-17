@@ -34,3 +34,18 @@ Easy starting points are also reviewing [pull requests](https://github.com/nextc
 **License:** [GPLv2](https://github.com/nextcloud/android/blob/master/LICENSE.txt)
 
 New contributions are added under [AGPLv3](https://www.gnu.org/licenses/agpl.txt).
+
+## Track forked repo
+After forked the repo to your account, clone your forked repo to local, then from local master branch, do following one time:
+```
+git remote add nextcloud https://github.com/nextcloud/android.git
+```
+
+## Update from forked repo
+Each time if want to update from forked repo, from local master branch:
+```
+git fetch nextcloud
+git rebase nextcloud/master
+```
+The goal of the rebase is to have a cleaner history if I have local changes or commits on the repo.
+
