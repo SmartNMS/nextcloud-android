@@ -26,6 +26,12 @@ ext {
 
     // allows for -Dpre-dex=false to be set
     preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
+
+    storeFile = "./KEY/SUNJOY.keystore"
+    storePassword = "sunjoy97"
+    keyAlias = "sunjoy.keystore"
+    keyPassword = "sunjoy97"
+
 }
 
 repositories {
@@ -202,4 +208,24 @@ android {
     }
     check.dependsOn 'checkstyle', 'findbugs', 'pmd', 'lint'
 
+}
+
+if(["storeFile", "storePassword", "keyAlias", "keyPassword"].count { !project.hasProperty(it) } == 0 ){
+    android {
+        signingConfigs {
+            release {
+                storeFile = file(project.storeFile)
+                storePassword = project.storePassword
+                keyAlias = project.keyAlias
+                keyPassword = project.keyPassword
+            }
+            debug {
+                storeFile = file(project.storeFile)
+                storePassword = project.storePassword
+                keyAlias = project.keyAlias
+                keyPassword = project.keyPassword
+            }
+        }
+    }
+    android.buildTypes.release.signingConfig = android.signingConfigs.release
 }
