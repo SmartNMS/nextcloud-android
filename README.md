@@ -35,17 +35,24 @@ Easy starting points are also reviewing [pull requests](https://github.com/nextc
 
 New contributions are added under [AGPLv3](https://www.gnu.org/licenses/agpl.txt).
 
-## Track forked repo
-After forked the repo to your account, clone your forked repo to local, then from local master branch, do following one time:
+## Track forked or forking repo
+After forked the repo to your account or be forked by other account, clone your repo to local, then from local master branch, do following one time:
 ```
 git remote add nextcloud https://github.com/nextcloud/android.git
+git remote add beforked https://github.com/beforked/android.git
 ```
 
 ## Update from forked repo
-Each time if want to update from forked repo, from local master branch:
+Each time if you want to update from forked repo, under local master branch:
 ```
 git fetch nextcloud
 git rebase nextcloud/master
 ```
-The goal of the rebase is to have a cleaner history if I have local changes or commits on the repo.
+The goal of the rebase is to have a cleaner history if you have local changes or commits on the repo.
 
+## Merge from be forked repo
+Each time if you want to merge from be forked repo, under local master branch:
+```
+git fetch beforked
+git merge beforked/master
+```
