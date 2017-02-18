@@ -24,7 +24,7 @@
     android:versionName="1.4.2 RC1">
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="15"
         android:targetSdkVersion="24" />
 
     <!-- GET_ACCOUNTS is needed for API < 23.

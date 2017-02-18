@@ -22,9 +22,11 @@
 
 package com.owncloud.android.ui.activity;
 
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
+import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -33,6 +35,14 @@ import android.widget.ProgressBar;
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.FileDataStorageManager;
 import com.owncloud.android.datamodel.OCFile;
+import com.owncloud.android.lib.common.utils.Log_OC;
+
+import org.jetbrains.annotations.NotNull;
+
+import me.majiajie.pagerbottomtabstrip.Controller;
+import me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout;
+import me.majiajie.pagerbottomtabstrip.TabStripBuild;
+import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;
 
 /**
  * Base class providing toolbar registration functionality, see {@link #setupToolbar()}.
@@ -40,10 +50,50 @@ import com.owncloud.android.datamodel.OCFile;
 public abstract class ToolbarActivity extends BaseActivity {
     private ProgressBar mProgressBar;
 
+    // Bottom tab bar controller
+    Controller mTabController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+
+    protected void setupTabbar(TabItemData[] tabItemDatas, @ColorInt int backgroundColor,OnTabItemSelectListener listener, int defaultTab) {
+        if(tabItemDatas == null || tabItemDatas.length <= 0) {
+            return;
+        }
+
+        try {
+            PagerBottomTabLayout pagerBottomTabLayout = (PagerBottomTabLayout) findViewById(R.id.tabbar);
+            if (pagerBottomTabLayout == null) {
+                return;
+            }
+            //构建导航栏,得到Controller进行后续控制
+            TabStripBuild tabBuilder = pagerBottomTabLayout.builder();
+            for (TabItemData item :
+                    tabItemDatas) {
+                //用TabItemBuilder构建一个导航按钮
+                tabBuilder.addTabItem(item.drawable,item.selectedDrawable,item.text,item.selectedColor);
+            }
+            mTabController = tabBuilder.build();
+            mTabController.setBackgroundColor(backgroundColor);
+            if(listener != null) {
+                mTabController.addTabItemClickListener(listener);
+            }
+
+            if(defaultTab >= 0 && defaultTab < tabItemDatas.length) {
+                mTabController.setSelect(defaultTab);
+            }
+        }
+        catch(Exception e) {
+            return;
+        }
+
+//        controller.setMessageNumber("A",2);
+//        controller.setDisplayOval(0,true);
+    }
+
 
     /**
      * Toolbar setup that must be called in implementer's {@link #onCreate} after {@link #setContentView} if they
@@ -127,4 +177,18 @@ public abstract class ToolbarActivity extends BaseActivity {
         mProgressBar.setBackgroundColor(color);
         mProgressBar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
     }
+}
+
+class TabItemData {
+    public TabItemData(@DrawableRes int drawable, @DrawableRes int selectedDrawable, @NotNull String text, @ColorInt int selectedColor) {
+        this.drawable = drawable;
+        this.selectedDrawable = selectedDrawable;
+        this.text = text;
+        this.selectedColor = selectedColor;
+    }
+
+    int drawable;
+    int selectedDrawable;
+    String text;
+    int selectedColor;
 }

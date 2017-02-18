@@ -34,9 +34,17 @@
 
         <FrameLayout
             android:id="@+id/upload_list_fragment"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/background_color"/>
+
+        <me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout
+            android:id="@+id/tabbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+
     </LinearLayout>
 
     <include

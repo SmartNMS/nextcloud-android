@@ -22,6 +22,7 @@
 package com.owncloud.android.ui.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
@@ -31,6 +32,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.owncloud.android.R;
+import com.owncloud.android.lib.common.utils.Log_OC;
+
+import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectListener;
 
 /**
  * Activity providing information about ways to participate in the app's development.
@@ -51,7 +55,42 @@ public class ParticipateActivity extends FileActivity {
         getSupportActionBar().setTitle(getString(R.string.drawer_participate));
 
         setupContent();
+
+        // Setup bottom tab bar
+        TabItemData[] tabItems = new TabItemData[4];
+        tabItems[0] = new TabItemData(android.R.drawable.ic_menu_send,android.R.drawable.ic_menu_send,"智云", Color.WHITE);
+        tabItems[1] = new TabItemData(android.R.drawable.ic_menu_compass,android.R.drawable.ic_menu_compass,"简记",Color.WHITE);
+        tabItems[2] = new TabItemData(android.R.drawable.ic_menu_search,android.R.drawable.ic_menu_search,"搜索",Color.WHITE);
+        tabItems[3] = new TabItemData(android.R.drawable.ic_menu_help,android.R.drawable.ic_menu_help,"帮助",Color.WHITE);
+        setupTabbar(tabItems,getResources().getColor(R.color.owncloud_blue),mTabListener,3);
+
     }
+
+    OnTabItemSelectListener mTabListener = new OnTabItemSelectListener() {
+        @Override
+        public void onSelected(int index, Object tag)
+        {
+            Log_OC.v(TAG, "onSelected:"+index+"   TAG: "+tag.toString());
+            switch (index) {
+                case 0:
+                    showFiles(false);
+                    break;
+                case 1:
+                    Intent uploadListIntent = new Intent(getApplicationContext(),
+                            UploadListActivity.class);
+                    uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(uploadListIntent);
+                    overridePendingTransition(0,0);
+                    break;
+            }
+        }
+
+        @Override
+        public void onRepeatClick(int index, Object tag) {
+            Log_OC.v(TAG, "onRepeatClick:"+index+"   TAG: "+tag.toString());
+        }
+    };
 
     private void setupContent() {
         TextView betaView = (TextView) findViewById(R.id.participate_beta_text);
@@ -133,6 +172,8 @@ public class ParticipateActivity extends FileActivity {
         Intent fileDisplayActivity = new Intent(getApplicationContext(),
                 FileDisplayActivity.class);
         fileDisplayActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        fileDisplayActivity.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(fileDisplayActivity);
+        overridePendingTransition(0,0);
     }
 }

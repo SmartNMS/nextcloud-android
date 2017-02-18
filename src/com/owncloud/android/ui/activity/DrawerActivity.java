@@ -303,7 +303,9 @@ public abstract class DrawerActivity extends ToolbarActivity implements DisplayU
                 Intent uploadListIntent = new Intent(getApplicationContext(),
                         UploadListActivity.class);
                 uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(uploadListIntent);
+                overridePendingTransition(0,0);
                 break;
             case R.id.nav_folder_sync:
                 Intent folderSyncIntent = new Intent(getApplicationContext(),FolderSyncActivity.class);
@@ -316,7 +318,9 @@ public abstract class DrawerActivity extends ToolbarActivity implements DisplayU
             case R.id.nav_participate:
                 Intent participateIntent = new Intent(getApplicationContext(),
                         ParticipateActivity.class);
+                participateIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(participateIntent);
+                overridePendingTransition(0,0);
                 break;
             case R.id.drawer_menu_account_add:
                 createAccount(false);
