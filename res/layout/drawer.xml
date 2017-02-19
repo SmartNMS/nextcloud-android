@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Nextcloud Android client application
 
   Copyright (C) 2016 Andy Scherzinger
@@ -19,7 +18,7 @@
   License along with this program. If not, see <http://www.gnu.org/licenses/>.
   -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
@@ -33,7 +32,6 @@
         app:theme="@style/NavigationView_ItemTextAppearance">
 
         <LinearLayout
-            android:id="@+id/drawer_quota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -44,24 +42,36 @@
             android:paddingLeft="@dimen/standard_padding"
             android:paddingRight="@dimen/standard_padding"
             android:paddingTop="@dimen/standard_half_padding"
-            android:visibility="gone">
+            android:visibility="visible">
 
-            <ProgressBar
-                android:id="@+id/drawer_quota_ProgressBar"
-                style="?android:attr/progressBarStyleHorizontal"
+            <LinearLayout
+                android:id="@+id/drawer_quota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:indeterminate="false"
-                android:indeterminateOnly="false"
-                android:text="@string/drawer_quota"
-                />
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <TextView
-                android:id="@+id/drawer_quota_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/drawer_quota"/>
+                <ProgressBar
+                    android:id="@+id/drawer_quota_ProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:indeterminateOnly="false"
+                    android:text="@string/drawer_quota" />
+
+                <TextView
+                    android:id="@+id/drawer_quota_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/drawer_quota" />
+
+            </LinearLayout>
+
+            <include layout="@layout/drawer_footer" />
         </LinearLayout>
+
 
     </android.support.design.widget.NavigationView>
 

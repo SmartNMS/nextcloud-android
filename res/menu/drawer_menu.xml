@@ -66,11 +66,11 @@
       all items in this group MUST have orderInCategory="3" set
     -->
     <group android:id="@+id/drawer_menu_bottom" android:checkableBehavior="single">
-        <item
+        <!-- item
             android:orderInCategory="3"
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
-            android:title="@string/actionbar_settings"/>
+            android:title="@string/actionbar_settings"/ -->
         <item
             android:orderInCategory="3"
             android:id="@+id/nav_participate"

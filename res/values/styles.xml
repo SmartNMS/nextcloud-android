@@ -40,7 +40,7 @@
 		<item name="windowNoTitle">true</item>
 		<item name="windowActionBar">false</item>
 		<item name="colorPrimary">@color/primary</item>
-		<item name="colorPrimaryDark">@color/primary_dark</item>
+		<item name="colorPrimaryDark">@color/primary</item>
 		<item name="colorAccent">@color/color_accent</item>
 		<item name="android:alertDialogTheme">@style/Theme.ownCloud.Dialog</item>
 		<item name="alertDialogTheme">@style/ownCloud.AlertDialog</item>

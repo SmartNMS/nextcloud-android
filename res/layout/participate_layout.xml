@@ -178,8 +178,8 @@
             </LinearLayout>
         </ScrollView>
 
-        <include
-            layout="@layout/tabbar_standard" />
+        <!-- include
+            layout="@layout/tabbar_standard" / -->
 
 
     </LinearLayout>

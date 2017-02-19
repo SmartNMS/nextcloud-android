@@ -39,8 +39,8 @@
             android:layout_height="match_parent"
             android:background="@color/background_color"/>
 
-        <include
-            layout="@layout/tabbar_standard" />
+        <!-- include
+            layout="@layout/tabbar_standard" / -->
 
     </LinearLayout>
 

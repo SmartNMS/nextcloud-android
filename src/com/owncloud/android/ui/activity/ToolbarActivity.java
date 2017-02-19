@@ -22,7 +22,6 @@
 
 package com.owncloud.android.ui.activity;
 
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
@@ -35,7 +34,6 @@ import android.widget.ProgressBar;
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.FileDataStorageManager;
 import com.owncloud.android.datamodel.OCFile;
-import com.owncloud.android.lib.common.utils.Log_OC;
 
 import org.jetbrains.annotations.NotNull;
 

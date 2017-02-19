@@ -181,6 +181,17 @@ public abstract class DrawerActivity extends ToolbarActivity implements DisplayU
             }
         }
 
+        // drawer bottom setting click listener
+        View settingsButton = findViewById(R.id.nav_settings);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent settingsIntent = new Intent(getApplicationContext(), Preferences.class);
+                startActivity(settingsIntent);
+            }
+        });
+
+
         setupDrawerToggle();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
