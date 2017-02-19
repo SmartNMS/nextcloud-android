@@ -78,9 +78,7 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
         super.showFiles(onDeviceOnly);
         Intent i = new Intent(getApplicationContext(), FileDisplayActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(i);
-        overridePendingTransition(0,0);
     }
 
     @Override
@@ -109,11 +107,11 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
 
         // Setup bottom tab bar
         TabItemData[] tabItems = new TabItemData[4];
-        tabItems[0] = new TabItemData(android.R.drawable.ic_menu_send,android.R.drawable.ic_menu_send,"智云", Color.WHITE);
-        tabItems[1] = new TabItemData(android.R.drawable.ic_menu_compass,android.R.drawable.ic_menu_compass,"简记",Color.WHITE);
-        tabItems[2] = new TabItemData(android.R.drawable.ic_menu_search,android.R.drawable.ic_menu_search,"搜索",Color.WHITE);
-        tabItems[3] = new TabItemData(android.R.drawable.ic_menu_help,android.R.drawable.ic_menu_help,"帮助",Color.WHITE);
-        setupTabbar(tabItems,getResources().getColor(R.color.owncloud_blue),mTabListener,1);
+        tabItems[0] = new TabItemData(android.R.drawable.ic_menu_send,android.R.drawable.ic_menu_send,"智云", getResources().getColor(R.color.color_accent));
+        tabItems[1] = new TabItemData(android.R.drawable.ic_menu_compass,android.R.drawable.ic_menu_compass,"简记",getResources().getColor(R.color.color_accent));
+        tabItems[2] = new TabItemData(android.R.drawable.ic_menu_search,android.R.drawable.ic_menu_search,"搜索",getResources().getColor(R.color.color_accent));
+        tabItems[3] = new TabItemData(android.R.drawable.ic_menu_help,android.R.drawable.ic_menu_help,"帮助",getResources().getColor(R.color.color_accent));
+        setupTabbar(tabItems,getResources().getColor(R.color.background_color),mTabListener,1);
 
     }
 
@@ -129,9 +127,7 @@ public class UploadListActivity extends FileActivity implements UploadListFragme
                 case 3:
                     Intent participateIntent = new Intent(getApplicationContext(),
                             ParticipateActivity.class);
-                    participateIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(participateIntent);
-                    overridePendingTransition(0,0);
                     break;
             }
         }

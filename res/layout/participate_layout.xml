@@ -178,11 +178,8 @@
             </LinearLayout>
         </ScrollView>
 
-        <me.majiajie.pagerbottomtabstrip.PagerBottomTabLayout
-            android:id="@+id/tabbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"/>
+        <include
+            layout="@layout/tabbar_standard" />
 
 
     </LinearLayout>

@@ -33,4 +33,10 @@
     <style name="Theme.ownCloud.Toolbar.Drawer">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <!-- separate style for Drawer activities without animation needed for v21+ theming -->
+    <style name="Theme.ownCloud.Toolbar.Drawer.NoAnimation" parent="Theme.ownCloud.Toolbar.Drawer">
+        <item name="android:windowAnimationStyle">@style/NoAnimation</item>
+    </style>
+
 </resources>

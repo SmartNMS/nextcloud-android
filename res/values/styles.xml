@@ -53,6 +53,27 @@
 	<style name="Theme.ownCloud.Toolbar.Drawer" parent="Theme.ownCloud.Toolbar">
 	</style>
 
+    <!-- no animation -->
+    <style name="NoAnimation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+
+	<!-- separate style for Drawer activities without animation needed for v21+ theming -->
+	<style name="Theme.ownCloud.Toolbar.Drawer.NoAnimation" parent="Theme.ownCloud.Toolbar.Drawer">
+        <item name="android:windowAnimationStyle">@style/NoAnimation</item>
+	</style>
+
 	<style name="Theme.ownCloud.noActionBar.Login" parent="Theme.ownCloud.Toolbar">
 		<item name="android:windowBackground">@color/primary</item>
 		<item name="colorControlNormal">@color/login_text_hint_color</item>
@@ -140,6 +161,13 @@
 		<item name="android:progressDrawable">@drawable/actionbar_progress_horizontal</item>
 		<item name="android:indeterminateDrawable">@drawable/actionbar_progress_indeterminate_horizontal</item>
 	</style>
+
+    <!-- Tab Progress bar -->
+    <style name="Widget.ownCloud.TabProgressBar" parent="style/Widget.AppCompat.ProgressBar.Horizontal">
+        <!-- item name="android:progressDrawable">@drawable/actionbar_progress_horizontal</item -->
+        <!-- item name="android:indeterminateDrawable">@drawable/actionbar_progress_indeterminate_horizontal</item -->
+        <item name="android:background">@color/list_divider_background</item>
+    </style>
 
 	<style name="Theme.ownCloud.Fullscreen" parent="style/Theme.AppCompat">
         <item name="android:windowFullscreen">true</item>

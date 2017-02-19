@@ -203,11 +203,11 @@ public class FileDisplayActivity extends HookActivity
 
         // Setup bottom tab bar
         TabItemData[] tabItems = new TabItemData[4];
-        tabItems[0] = new TabItemData(android.R.drawable.ic_menu_send,android.R.drawable.ic_menu_send,"智云",Color.WHITE);
-        tabItems[1] = new TabItemData(android.R.drawable.ic_menu_compass,android.R.drawable.ic_menu_compass,"简记",Color.WHITE);
-        tabItems[2] = new TabItemData(android.R.drawable.ic_menu_search,android.R.drawable.ic_menu_search,"搜索",Color.WHITE);
-        tabItems[3] = new TabItemData(android.R.drawable.ic_menu_help,android.R.drawable.ic_menu_help,"帮助",Color.WHITE);
-        setupTabbar(tabItems,getResources().getColor(R.color.owncloud_blue),mTabListener,0);
+        tabItems[0] = new TabItemData(android.R.drawable.ic_menu_send,android.R.drawable.ic_menu_send,"智云",getResources().getColor(R.color.color_accent));
+        tabItems[1] = new TabItemData(android.R.drawable.ic_menu_compass,android.R.drawable.ic_menu_compass,"简记",getResources().getColor(R.color.color_accent));
+        tabItems[2] = new TabItemData(android.R.drawable.ic_menu_search,android.R.drawable.ic_menu_search,"搜索",getResources().getColor(R.color.color_accent));
+        tabItems[3] = new TabItemData(android.R.drawable.ic_menu_help,android.R.drawable.ic_menu_help,"帮助",getResources().getColor(R.color.color_accent));
+        setupTabbar(tabItems,getResources().getColor(R.color.background_color),mTabListener,0);
 
         Log_OC.v(TAG, "onCreate() end");
     }
@@ -221,17 +221,13 @@ public class FileDisplayActivity extends HookActivity
                 case 3:
                     Intent participateIntent = new Intent(getApplicationContext(),
                             ParticipateActivity.class);
-                    participateIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(participateIntent);
-                    overridePendingTransition(0,0);
                     break;
                 case 1:
                     Intent uploadListIntent = new Intent(getApplicationContext(),
                             UploadListActivity.class);
                     uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(uploadListIntent);
-                    overridePendingTransition(0,0);
                     break;
             }
         }

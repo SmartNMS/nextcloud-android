@@ -65,7 +65,7 @@ public abstract class ToolbarActivity extends BaseActivity {
         }
 
         try {
-            PagerBottomTabLayout pagerBottomTabLayout = (PagerBottomTabLayout) findViewById(R.id.tabbar);
+            PagerBottomTabLayout pagerBottomTabLayout = (PagerBottomTabLayout) findViewById(R.id.tabBar);
             if (pagerBottomTabLayout == null) {
                 return;
             }
@@ -77,7 +77,9 @@ public abstract class ToolbarActivity extends BaseActivity {
                 tabBuilder.addTabItem(item.drawable,item.selectedDrawable,item.text,item.selectedColor);
             }
             mTabController = tabBuilder.build();
-            mTabController.setBackgroundColor(backgroundColor);
+            if(backgroundColor > 0) {
+                mTabController.setBackgroundColor(backgroundColor);
+            }
             if(listener != null) {
                 mTabController.addTabItemClickListener(listener);
             }

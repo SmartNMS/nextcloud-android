@@ -58,11 +58,11 @@ public class ParticipateActivity extends FileActivity {
 
         // Setup bottom tab bar
         TabItemData[] tabItems = new TabItemData[4];
-        tabItems[0] = new TabItemData(android.R.drawable.ic_menu_send,android.R.drawable.ic_menu_send,"智云", Color.WHITE);
-        tabItems[1] = new TabItemData(android.R.drawable.ic_menu_compass,android.R.drawable.ic_menu_compass,"简记",Color.WHITE);
-        tabItems[2] = new TabItemData(android.R.drawable.ic_menu_search,android.R.drawable.ic_menu_search,"搜索",Color.WHITE);
-        tabItems[3] = new TabItemData(android.R.drawable.ic_menu_help,android.R.drawable.ic_menu_help,"帮助",Color.WHITE);
-        setupTabbar(tabItems,getResources().getColor(R.color.owncloud_blue),mTabListener,3);
+        tabItems[0] = new TabItemData(android.R.drawable.ic_menu_send,android.R.drawable.ic_menu_send,"智云", getResources().getColor(R.color.color_accent));
+        tabItems[1] = new TabItemData(android.R.drawable.ic_menu_compass,android.R.drawable.ic_menu_compass,"简记",getResources().getColor(R.color.color_accent));
+        tabItems[2] = new TabItemData(android.R.drawable.ic_menu_search,android.R.drawable.ic_menu_search,"搜索",getResources().getColor(R.color.color_accent));
+        tabItems[3] = new TabItemData(android.R.drawable.ic_menu_help,android.R.drawable.ic_menu_help,"帮助",getResources().getColor(R.color.color_accent));
+        setupTabbar(tabItems,getResources().getColor(R.color.background_color),mTabListener,3);
 
     }
 
@@ -79,9 +79,7 @@ public class ParticipateActivity extends FileActivity {
                     Intent uploadListIntent = new Intent(getApplicationContext(),
                             UploadListActivity.class);
                     uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    uploadListIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(uploadListIntent);
-                    overridePendingTransition(0,0);
                     break;
             }
         }
@@ -172,8 +170,6 @@ public class ParticipateActivity extends FileActivity {
         Intent fileDisplayActivity = new Intent(getApplicationContext(),
                 FileDisplayActivity.class);
         fileDisplayActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        fileDisplayActivity.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(fileDisplayActivity);
-        overridePendingTransition(0,0);
     }
 }
